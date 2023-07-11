@@ -1,6 +1,12 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 .players {
     display: flex;
     flex-direction: column;
+    margin-bottom: 5%;
 }
 
 .players-names {
@@ -29,8 +35,7 @@
 }
 
 .enter {
-    display: flex;
-    
+    display: flex;    
     justify-content: center;
 }
 
@@ -38,5 +43,58 @@
     display: flex;
     background-color: rgb(34, 156, 244);
     margin-top: .5%;
+    padding: .4% 1%;
+}
+
+.game-section {
+    display: flex;
+}
+
+#player1-score, #player2-score {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5%;
+}
+
+#game-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    align-items: center;
+}
+
+.game-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-grid-row1, .game-grid-row2, .game-grid-row3 {
+    display: flex;
+}
+
+#row1-column1, #row1-column2, #row1-column3, #row2-column1, #row2-column2, #row2-column3, #row3-column1, #row3-column2, #row3-column3 {
+    border: 2px solid black;
+    width: 50px;
+    height: 50px;
+}
+
+.game-btns {
+    display: flex;
+    margin-top: 1.5%;
+    justify-content: center;
+    width: 10%;
+}
+
+#new-game-btn {
+    display: flex;
+    background-color: rgb(34, 156, 244);
+    padding: .4% 50%;
+    margin-right: 15%;
+    justify-content: left;
+}
+
+#reset-btn {
+    display: flex;
+    background-color: rgb(244, 213, 34);
     padding: .4% 1%;
 }
