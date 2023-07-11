@@ -1,0 +1,42 @@
+.players {
+    display: flex;
+    flex-direction: column;
+}
+
+.players-names {
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+    column-gap: 35px;
+}
+
+.player1, .player2 {
+    display: flex;
+    column-gap: 20px;
+    flex-grow: 2;
+}
+
+.player1 {
+    justify-content: flex-end;
+}
+
+.player1-name, .player2-name {
+    
+}
+
+.player1-input, .player2-input {
+    margin: 2%;
+}
+
+.enter {
+    display: flex;
+    
+    justify-content: center;
+}
+
+#enter-btn {
+    display: flex;
+    background-color: rgb(34, 156, 244);
+    margin-top: .5%;
+    padding: .4% 1%;
+}
