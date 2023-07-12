@@ -57,6 +57,7 @@ body {
 
 .game-section {
     display: flex;
+    margin-bottom: 2.5%;
 }
 
 .player1-score-column, .player2-score-column {
@@ -101,36 +102,26 @@ body {
     justify-content: center;
 }
 
-#new-game-btn, #reset-btn {
+#new_game_btn, #reset_btn {
     display: flex;
     padding: 4% 10%;
     cursor: pointer;
 }
 
-#new-game-btn {
+#new_game_btn {
     white-space: nowrap;
     margin-right: 15%;    
     background-color: rgb(255, 0, 0);
     color: white;
 }
 
-#reset-btn {  
+#reset_btn {  
     background-color: rgb(96, 222, 0);
     color: white;
 }
 
-.x {
-    width: 118.79px;
-    height: 0px;
-    transform: rotate(130.937deg);
-    stroke-width: 10px;
-    stroke: #000;
-}
-
-.o {
-    visibility:hidden
-}
-
-.x {
-    visibility: visible;
+#round_winner {
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 22, 22);
 }
