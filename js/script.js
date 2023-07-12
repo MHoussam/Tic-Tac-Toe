@@ -156,7 +156,6 @@ function symbol(e) {
                     result.innerHTML = `<div id="winner">${player2_name.value} Won This Round!</div>`
                     round_winner.append(result)
 
-                    console.log(round_winner)
                     _continue = false
                     tie = false
                 }   
@@ -167,7 +166,6 @@ function symbol(e) {
 
                     _continue = false
                 }
-                console.log(round_winner)
             }
         }
     }
@@ -182,7 +180,7 @@ function symbol(e) {
         console.log(progress[2][1])
         console.log(progress[2][2])*/
 
-        console.log(e.target)
+        //console.log(e.target)
 }
 
 var new_game_btn = document.getElementById('new_game_btn')
@@ -217,15 +215,82 @@ new_game_btn.addEventListener('click', function () {
         console.log(progress[2][1])
         console.log(progress[2][2])*/
         
+        
+
+        if (turn % 2 == 0) {
+            var x_times = parseInt(turn / 2)
+        } else {
+            var x_times = parseInt(turn / 2) + 1
+        }
+
+        var o_times = parseInt(turn / 2)
+
         i=0
-        for(i; i<(turn/2)+1; i++){
-            let x = document.getElementById('x')
-            let o = document.getElementById('o')
+        for(i; i<x_times; i++){
+            var x = document.getElementById('x')
             x.remove();
+        }
+
+        i=0
+        for(i; i<o_times; i++){
+            var o = document.getElementById('o')
             o.remove();
         }
 
         let w = document.getElementById('winner')
-        console.log(w)
+        
         w.remove();
+
+        turn = 0
+})
+
+var reset_btn = document.getElementById('reset_btn')
+reset_btn.addEventListener('click', function () {
+    
+
+    row1_column1 = false
+    row1_column2 = false
+    row1_column3 = false
+
+    row2_column1 = false
+    row2_column2 = false
+    row2_column3 = false
+
+    row3_column1 = false
+    row3_column2 = false
+    row3_column3 = false
+
+    _continue = true
+
+    progress = [[-1, -1, -1],
+                [-1, -1, -1], 
+                [-1, -1, -1]]     
+
+        if (turn % 2 == 0) {
+            var x_times = parseInt(turn / 2)
+        } else {
+            var x_times = parseInt(turn / 2) + 1
+        }
+
+        var o_times = parseInt(turn / 2)
+
+        i=0
+        for(i; i<x_times; i++){
+            var x = document.getElementById('x')
+            x.remove();
+        }
+
+        i=0
+        for(i; i<o_times; i++){
+            var o = document.getElementById('o')
+            o.remove();
+        }
+
+        let w = document.getElementById('winner')
+        
+        w.remove();
+
+        turn = 0
+
+        
 })
