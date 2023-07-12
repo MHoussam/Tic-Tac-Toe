@@ -88,7 +88,7 @@ body {
     display: flex;
 }
 
-#row1-column1, #row1-column2, #row1-column3, #row2-column1, #row2-column2, #row2-column3, #row3-column1, #row3-column2, #row3-column3 {
+#row1_column1, #row1_column2, #row1_column3, #row2_column1, #row2_column2, #row2_column3, #row3_column1, #row3_column2, #row3_column3 {
     border: 2px solid black;
     width: 55px;
     height: 55px;

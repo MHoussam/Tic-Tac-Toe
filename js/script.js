@@ -24,17 +24,17 @@ function add_player2_name() {
 }
 
 
-let row1_col1 = document.getElementById('row1-column1')
-let row1_col2 = document.getElementById('row1-column2')
-let row1_col3 = document.getElementById('row1-column3')
+let row1_col1 = document.getElementById('row1_column1')
+let row1_col2 = document.getElementById('row1_column2')
+let row1_col3 = document.getElementById('row1_column3')
 
-let row2_col1 = document.getElementById('row2-column1')
-let row2_col2 = document.getElementById('row2-column2')
-let row2_col3 = document.getElementById('row2-column3')
+let row2_col1 = document.getElementById('row2_column1')
+let row2_col2 = document.getElementById('row2_column2')
+let row2_col3 = document.getElementById('row2_column3')
 
-let row3_col1 = document.getElementById('row3-column1')
-let row3_col2 = document.getElementById('row3-column2')
-let row3_col3 = document.getElementById('row3-column3')
+let row3_col1 = document.getElementById('row3_column1')
+let row3_col2 = document.getElementById('row3_column2')
+let row3_col3 = document.getElementById('row3_column3')
 
 row1_col1.addEventListener('click', symbol)
 row1_col2.addEventListener('click', symbol)
@@ -50,17 +50,41 @@ row3_col3.addEventListener('click', symbol)
 
 let turn = 0
 
+let row1_column1 = false
+let row1_column2 = false
+let row1_column3 = false
+
+let row2_column1 = false
+let row2_column2 = false
+let row2_column3 = false
+
+let row3_column1 = false
+let row3_column2 = false
+let row3_column3 = false
+
 function symbol(e) {
-    turn+=1
-    let newListItem = document.createElement('class')
 
-    newListItem.innerHTML = '<svg xmlns=\'http://www.w3.org/2000/svg\'; width=\'50\'; height=\'50\'; viewBox=\'0 0 70 70\'; fill=\'none\'> <circle cx=\"35\" cy=\"35\" r=\"35\" fill=\"#D9D9D9\"></svg>'
-    row1_col1.append(newListItem)
+    
+    console.log("1 " + eval(`${e.target.id}`))
 
-    console.log(row1_col1)
+    if (eval(`${e.target.id}`) == false) {
+        turn+=1
+
+        console.log("2 " + eval(`${e.target.id}`))
+
+        let newListItem = document.createElement('class')
+
+        if (turn % 2 == 0) {
+            newListItem.innerHTML = '<svg xmlns=\'http://www.w3.org/2000/svg\'; width=\'50\'; height=\'50\'; viewBox=\'0 0 70 70\'; fill=\'none\'> <circle cx=\"35\" cy=\"35\" r=\"35\" fill=\"#000\"></svg>'
+        } else {
+            newListItem.innerHTML = '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\"; height=\"50\"; viewBox=\"0 0 104 110\"; fill=\"none\"><path d="M87.8341 10L10 99.7381" stroke="black" stroke-width="20" stroke-linecap="round"/><path d="M94 97L10 13" stroke="black" stroke-width="20" stroke-linecap="round"/></svg>'
+        }
+
+        e.target.append(newListItem)
+
+    }
+    
+    console.log("3 " + eval(`${e.target.id}`))
+    console.log(e.target.id)
+    console.log(turn)
 }
-
-console.log(turn)
-
-let r = document.getElementById('row1-column1')
-//console.log(r)
