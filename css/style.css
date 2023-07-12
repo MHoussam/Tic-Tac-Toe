@@ -120,7 +120,7 @@ body {
     color: white;
 }
 
-#winner {
+#round_winner, #winner {
     display: flex;
     justify-content: center;
     color: rgb(255, 22, 22);
