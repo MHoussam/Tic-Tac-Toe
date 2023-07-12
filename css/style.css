@@ -13,20 +13,18 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 7%;
-    column-gap: 35px;
+    margin-left: 20%;
+    margin-right: 10%;
 }
 
 .player1, .player2 {
     display: flex;
     flex-grow: 2;
+    margin-left: 2%;
 }
 
 .player1 {
     justify-content: flex-end;
-}
-
-.player1-name, .player2-name {
-    
 }
 
 #player1-input, #player2-input {
@@ -35,24 +33,19 @@ body {
 
 .enter {
     display: flex;    
-    justify-content: center;
-    justify-content: space-evenly;
+    flex-grow: 3;
+    padding: 1%;
 }
 
-#enter-player1-btn, #enter-player2-btn {
+#enter-player-btn {
     display: flex;
     background-color: rgb(34, 156, 244);
     margin-top: .5%;
-    padding: .4% 1%;
+    margin-left: -20%;
+    padding: .4% 5%;
+    border-radius: 10px;
     cursor: pointer;
-}
-
-#enter-player1-btn {
-    margin-left: 18%;
-}
-
-#enter-player2-btn {
-    margin-right: 15%;
+    align-items: center;
 }
 
 .game-section {

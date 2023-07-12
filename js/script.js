@@ -1,5 +1,4 @@
-var add_player_btn1 = document.getElementById('enter-player1-btn')
-var add_player_btn2 = document.getElementById('enter-player2-btn')
+var add_player_btn = document.getElementById('enter-player-btn')
 
 var h4_tags = document.getElementsByTagName('h4')
 var h5_tags = document.getElementsByTagName('h5')
@@ -7,7 +6,7 @@ var h5_tags = document.getElementsByTagName('h5')
 var player1_name = document.getElementById('player1-input')
 var player2_name = document.getElementById('player2-input')
 
-add_player_btn1.addEventListener('click', add_player1_name)
+add_player_btn.addEventListener('click', add_player_name)
 
 var player1_score = 0
 var player2_score = 0
@@ -15,7 +14,7 @@ var player2_score = 0
 var p1_name = 'Player 1'
 var p2_name = 'Player 2'
 
-function add_player1_name() {
+function add_player_name() {
     h4_tags[0].innerText = `${player1_name.value}`
     h5_tags[0].innerText = player1_score
 
@@ -142,7 +141,7 @@ function symbol(e) {
 
                     h5_tags[0].innerText = player1_score
 
-                    console.log(progress[0][0])
+                   /* console.log(progress[0][0])
                     console.log(progress[0][1])
                     console.log(progress[0][2])
                     console.log(progress[1][0])
@@ -150,7 +149,7 @@ function symbol(e) {
                     console.log(progress[1][2])
                     console.log(progress[2][0])
                     console.log(progress[2][1])
-                    console.log(progress[2][2])
+                    console.log(progress[2][2])*/
 
                     result.innerHTML = `<div id="winner">${p1_name} Won This Round!</div>`
                     winner.append(result)
