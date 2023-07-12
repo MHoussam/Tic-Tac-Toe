@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tic Tac Toe</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="icon" href="img/tic-tac-toe.png" type="image/icon type">
     </head>
 
@@ -15,18 +15,21 @@
                 <div class="player1">
                     <h2 class="player1-name">Player 1</h2>
 
-                    <input type="text" placeholder="Player 1's Name" class="player1-input">
+                    <input type="text" placeholder="Player 1's Name" id="player1-input">
                 </div>
 
                 <div class="player2">
                     <h2 class="player2-name">Player 2</h2>
 
-                    <input type="text" placeholder="Player 2's Name" class="player2-input">
+                    <input type="text" placeholder="Player 2's Name" id="player2-input">
                 </div>
             </div>
 
             <div class="enter">
-                <div id="enter-btn">
+                <div id="enter-player1-btn">
+                    Enter
+                </div>
+                <div id="enter-player2-btn">
                     Enter
                 </div>
             </div>
@@ -34,60 +37,78 @@
 
         <div class="game-section">
             <div class="player1-score-column">
-                <h3 id="player1-score">
+                <h2 id="player1-score">
                     Player 1:
-                </h3>
+                </h2>
 
-                <div class="player1-column-name">
+                <h4 class="player1-column-name">
 
-                </div>
+                </h4>
 
-                <div class="player1-column-score">
+                <h5 class="player1-result">
                     
-                </div>
+                </h5>
             </div>
 
             <div id="game-column">
                 <div class="game-grid">
                     <div class="game-grid-row1">
                         <div id="row1-column1">
-
+                            <div class="row1-column1-symbol">
+                                
+                            </div>
                         </div>
 
                         <div id="row1-column2">
-
+                            <div class="row1-column2-symbol">
+                                
+                            </div>
                         </div>
 
                         <div id="row1-column3">
-
+                            <div class="row1-column3-symbol">
+                                
+                            </div>
                         </div>
                     </div>
 
                     <div class="game-grid-row2">
                         <div id="row2-column1">
-
+                            <div class="row2-column1-symbol">
+                                
+                            </div>
                         </div>
 
                         <div id="row2-column2">
-
+                            <div class="row2-column2-symbol">
+                                
+                            </div>
                         </div>
 
                         <div id="row2-column3">
-
+                            <div class="row2-column3-symbol">
+                                
+                            </div>
                         </div>
                     </div>
 
                     <div class="game-grid-row3">
                         <div id="row3-column1">
-
+                            <div class="row3-column1-symbol">
+                                
+                            </div>
                         </div>
 
                         <div id="row3-column2">
-
+                            <div class="row3-column2-symbol">
+                                
+                            </div>
                         </div>
 
                         <div id="row3-column3">
-
+                            <div class="row3-column3-symbol">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,19 +125,20 @@
             </div>
 
             <div class="player2-score-column">
-                <h3 id="player2-score">
+                <h2 id="player2-score">
                     Player 2:
-                </h3>
+                </h2>
 
-                <div class="player2-column-name">
+                <h4 class="player2-column-name">
 
-                </div>
+                </h4>
 
-                <div class="player2-column-score">
+                <h5 class="player2-result">
                     
-                </div>
+                </h5>
             </div>
         </div>
-    </body>
 
+        <script src="js/script.js"></script>
+    </body>
 </html>

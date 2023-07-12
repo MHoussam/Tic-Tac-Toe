@@ -18,7 +18,6 @@ body {
 
 .player1, .player2 {
     display: flex;
-    column-gap: 20px;
     flex-grow: 2;
 }
 
@@ -30,30 +29,46 @@ body {
     
 }
 
-.player1-input, .player2-input {
+#player1-input, #player2-input {
     margin: 2%;
 }
 
 .enter {
     display: flex;    
     justify-content: center;
+    justify-content: space-evenly;
 }
 
-#enter-btn {
+#enter-player1-btn, #enter-player2-btn {
     display: flex;
     background-color: rgb(34, 156, 244);
     margin-top: .5%;
     padding: .4% 1%;
+    cursor: pointer;
+}
+
+#enter-player1-btn {
+    margin-left: 18%;
+}
+
+#enter-player2-btn {
+    margin-right: 15%;
 }
 
 .game-section {
     display: flex;
 }
 
-#player1-score, #player2-score {
+.player1-score-column, .player2-score-column {
     display: flex;
     flex-direction: column;
     margin: 0 5%;
+}
+
+.player1-column-name, .player2-column-name, .player1-result, .player2-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #game-column {
@@ -77,6 +92,7 @@ body {
     border: 2px solid black;
     width: 55px;
     height: 55px;
+    cursor: pointer;
 }
 
 .game-btns {
@@ -88,6 +104,7 @@ body {
 #new-game-btn, #reset-btn {
     display: flex;
     padding: 4% 10%;
+    cursor: pointer;
 }
 
 #new-game-btn {
@@ -100,4 +117,20 @@ body {
 #reset-btn {  
     background-color: rgb(96, 222, 0);
     color: white;
+}
+
+.x {
+    width: 118.79px;
+    height: 0px;
+    transform: rotate(130.937deg);
+    stroke-width: 10px;
+    stroke: #000;
+}
+
+.o {
+    visibility:hidden
+}
+
+.x {
+    visibility: visible;
 }
