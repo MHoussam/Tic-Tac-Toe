@@ -401,7 +401,6 @@ function myMove(e) {
             clearInterval(id);
         } else {
             pos+=2;
-            console.log(id)
             line.style.visibility = 'visible';
             line.style.width = pos + 'px';
         }
