@@ -139,13 +139,39 @@ body {
     z-index:-1;
 }
 
-#strike_longer {
-    transform: rotate(-1deg);
+#strike_diagonal1 , #strike_diagonal2, #strike_row1, #strike_row2, #strike_row3, #strike_column1, #strike_column2, #strike_column3 {
     stroke-width: 10px;
     stroke: #BB0202;
     visibility: hidden;
-    width: 215px; 
+    width: 220px; 
     height: 160px;
     fill: none;
     stroke-linecap: round;
+    position: absolute;
+}
+
+#strike_diagonal2 {
+    transform: rotate(-1deg);
+}
+
+#strike_row1, #strike_row2, #strike_row3 {
+    width: 160px; 
+    height: 160px;
+    margin-left: 30px;
+}
+
+#strike_row1 {
+    margin-top: -60px;
+}
+
+#strike_row3 {
+    margin-top: 60px;
+}
+
+#strike_column1 {
+    margin-left: -60px;
+}
+
+#strike_column3 {
+    margin-left: 60px;
 }

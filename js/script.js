@@ -32,6 +32,15 @@ function add_player_name() {
     }
 }
 
+const strike_diagonal1 = document.getElementById('strike_diagonal1')
+const strike_diagonal2 = document.getElementById('strike_diagonal2')
+const strike_row1 = document.getElementById('strike_row1')
+const strike_row2 = document.getElementById('strike_row2')
+const strike_row3 = document.getElementById('strike_row3')
+const strike_column1 = document.getElementById('strike_column1')
+const strike_column2 = document.getElementById('strike_column2')
+const strike_column3 = document.getElementById('strike_column3')
+
 
 const row1_col1 = document.getElementById('row1_column1')
 const row1_col2 = document.getElementById('row1_column2')
@@ -143,18 +152,26 @@ function symbol(e) {
                 if(turn > 4) {
                     if ((progress[0][0] == 0 && progress[0][1] == 0 && progress[0][2] == 0) || (progress[1][0] == 0 && progress[1][1] == 0 && progress[1][2] == 0) || (progress[2][0] == 0 && progress[2][1] == 0 && progress[2][2] == 0) || (progress[0][0] == 0 && progress[1][1] == 0 && progress[2][2] == 0) || (progress[0][2] == 0 && progress[1][1] == 0 && progress[2][0] == 0) || (progress[0][0] == 0 && progress[1][0] == 0 && progress[2][0] == 0) || (progress[0][1] == 0 && progress[1][1] == 0 && progress[2][1] == 0) || (progress[0][2] == 0 && progress[1][2] == 0 && progress[2][2] == 0)) {
                         player1_score+=1
-
                         h5_tags[0].innerText = player1_score
+                        
+                        if (progress[0][2] == 0 && progress[1][1] == 0 && progress[2][0] == 0){
+                            myMove('strike_diagonal1');
+                        } else if (progress[0][0] == 0 && progress[1][1] == 0 && progress[2][2] == 0) {
+                            myMove('strike_diagonal2');
+                        } else if (progress[0][0] == 0 && progress[0][1] == 0 && progress[0][2] == 0) {
+                            myMove('strike_row1');
+                        } else if (progress[1][0] == 0 && progress[1][1] == 0 && progress[1][2] == 0) {
+                            myMove('strike_row2');
+                        } else if (progress[2][0] == 0 && progress[2][1] == 0 && progress[2][2] == 0) {
+                            myMove('strike_row3');
+                        } else if (progress[0][0] == 0 && progress[1][0] == 0 && progress[2][0] == 0) {
+                            myMove('strike_column1');
+                        } else if (progress[0][1] == 0 && progress[1][1] == 0 && progress[2][1] == 0) {
+                            myMove('strike_column2');
+                        } else if (progress[0][2] == 0 && progress[1][2] == 0 && progress[2][2] == 0) {
+                            myMove('strike_column3');
+                        }
 
-                    /* console.log(progress[0][0])
-                        console.log(progress[0][1])
-                        console.log(progress[0][2])
-                        console.log(progress[1][0])
-                        console.log(progress[1][1])
-                        console.log(progress[1][2])
-                        console.log(progress[2][0])
-                        console.log(progress[2][1])
-                        console.log(progress[2][2])*/
 
                         result.innerHTML = `<div id="winner">${p1_name} Won This Round!</div>`
                         winner.append(result)
@@ -234,10 +251,28 @@ new_game_btn.addEventListener('click', function () {
 
     turn = 0
 
-    const elem = document.getElementById("strike_longer");
-    const el = document.getElementById("strike");
-    el.style.zIndex = '-1';
-    elem.style.visibility = 'hidden';
+    if (strike_diagonal1.style.visibility == 'visible') {
+        strike_diagonal1.style.visibility = 'hidden';
+    } else if (strike_diagonal2.style.visibility == 'visible') {
+        strike_diagonal2.style.visibility = 'hidden'
+    } else if (strike_row1.style.visibility == 'visible') {
+        strike_row1.style.visibility = 'hidden';
+    } else if (strike_row2.style.visibility == 'visible') {
+        strike_row2.style.visibility = 'hidden';
+    } else if (strike_row3.style.visibility == 'visible') {
+        strike_row3.style.visibility = 'hidden';
+    }  else if (strike_column1.style.visibility == 'visible') {
+        strike_column1.style.visibility = 'hidden';
+    } else if (strike_column2.style.visibility == 'visible') {
+        strike_column2.style.visibility = 'hidden';
+    } else if (strike_column3.style.visibility == 'visible') {
+        strike_column3.style.visibility = 'hidden';
+    }
+
+    const line = document.getElementById("strike_diagonal1");
+    const strike = document.getElementById("strike");
+    strike.style.zIndex = '-1';
+    line.style.visibility = 'hidden';
 })
 
 var reset_btn = document.getElementById('reset_btn')
@@ -300,28 +335,48 @@ reset_btn.addEventListener('click', function () {
     player1_name.value = ''
     player2_name.value = ''
 
-    const elem = document.getElementById("strike_longer");
-    const el = document.getElementById("strike");
-    el.style.zIndex = '-1';
-    elem.style.visibility = 'hidden';
+    if (strike_diagonal1.style.visibility == 'visible') {
+        strike_diagonal1.style.visibility = 'hidden';
+    } else if (strike_diagonal2.style.visibility == 'visible') {
+        strike_diagonal2.style.visibility = 'hidden'
+    } else if (strike_row1.style.visibility == 'visible') {
+        'strike_row1'.style.visibility = 'hidden';
+    } else if (strike_row2.style.visibility == 'visible') {
+        'strike_row2'.style.visibility = 'hidden';
+    } else if (strike_column1.style.visibility == 'visible') {
+        'strike_row3'.style.visibility = 'hidden';
+    }  else if (strike_column1.style.visibility == 'visible') {
+        'strike_column1'.style.visibility = 'hidden';
+    } else if (strike_column2.style.visibility == 'visible') {
+        'strike_column2'.style.visibility = 'hidden';
+    } else if (strike_column3.style.visibility == 'visible') {
+        'strike_column3'.style.visibility = 'hidden';
+    }
+
+    const line = document.getElementById("strike_diagonal1");
+    const strike = document.getElementById("strike");
+    strike.style.zIndex = '-1';
+    line.style.visibility = 'hidden';
 })
 
-function myMove() {
+function myMove(e) {
     let id = null;
-    const elem = document.getElementById("strike_longer");
-    const el = document.getElementById("strike");
-    el.style.zIndex = '1';
+    const line = document.getElementById(e);
+    console.log(e);
+    const strike = document.getElementById("strike");
+    strike.style.zIndex = '1';
 
     let pos = 0;
     clearInterval(id);
-    id = setInterval(frame, 5);
+    id = setInterval(frame, 1);
+    console.log(id)
     function frame() {
-        if (pos == 215) {
+        if (pos == 220) {
             clearInterval(id);
-          } else {
-            pos++;
-            elem.style.visibility = 'visible';
-            elem.style.width = pos + 'px';
-          }
+        } else {
+            pos+=2;
+            line.style.visibility = 'visible';
+            line.style.width = pos + 'px';
+        }
     }
   }
