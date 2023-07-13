@@ -122,11 +122,11 @@ body {
 #x {
     width: 47px;
     height: 49px;
-    background-image: url('../img/xx.png');
+    background-image: url('../img/x.png');
 }
 
 #o {
     width: 50px;
     height: 50px;
-    background-image: url('../img/oo.png');
+    background-image: url('../img/o.png');
 }
