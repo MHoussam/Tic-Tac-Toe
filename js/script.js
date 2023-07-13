@@ -1,10 +1,10 @@
-var add_player_btn = document.getElementById('enter-player-btn')
+const add_player_btn = document.getElementById('enter-player-btn')
 
 var h4_tags = document.getElementsByTagName('h4')
 var h5_tags = document.getElementsByTagName('h5')
 
-var player1_name = document.getElementById('player1-input')
-var player2_name = document.getElementById('player2-input')
+const player1_name = document.getElementById('player1-input')
+const player2_name = document.getElementById('player2-input')
 
 add_player_btn.addEventListener('click', add_player_name)
 
@@ -33,19 +33,19 @@ function add_player_name() {
 }
 
 
-var row1_col1 = document.getElementById('row1_column1')
-var row1_col2 = document.getElementById('row1_column2')
-var row1_col3 = document.getElementById('row1_column3')
+const row1_col1 = document.getElementById('row1_column1')
+const row1_col2 = document.getElementById('row1_column2')
+const row1_col3 = document.getElementById('row1_column3')
 
-var row2_col1 = document.getElementById('row2_column1')
-var row2_col2 = document.getElementById('row2_column2')
-var row2_col3 = document.getElementById('row2_column3')
+const row2_col1 = document.getElementById('row2_column1')
+const row2_col2 = document.getElementById('row2_column2')
+const row2_col3 = document.getElementById('row2_column3')
 
-var row3_col1 = document.getElementById('row3_column1')
-var row3_col2 = document.getElementById('row3_column2')
-var row3_col3 = document.getElementById('row3_column3')
+const row3_col1 = document.getElementById('row3_column1')
+const row3_col2 = document.getElementById('row3_column2')
+const row3_col3 = document.getElementById('row3_column3')
 
-var round_winner = document.getElementById('round_winner')
+const round_winner = document.getElementById('round_winner')
 
 row1_col1.addEventListener('click', symbol)
 row1_col2.addEventListener('click', symbol)
@@ -138,7 +138,7 @@ function symbol(e) {
                 turn++
 
                 var result = document.createElement('id')
-                var winner = document.getElementById('round_winner')
+                const winner = document.getElementById('round_winner')
 
                 if(turn > 4) {
                     if ((progress[0][0] == 0 && progress[0][1] == 0 && progress[0][2] == 0) || (progress[1][0] == 0 && progress[1][1] == 0 && progress[1][2] == 0) || (progress[2][0] == 0 && progress[2][1] == 0 && progress[2][2] == 0) || (progress[0][0] == 0 && progress[1][1] == 0 && progress[2][2] == 0) || (progress[0][2] == 0 && progress[1][1] == 0 && progress[2][0] == 0) || (progress[0][0] == 0 && progress[1][0] == 0 && progress[2][0] == 0) || (progress[0][1] == 0 && progress[1][1] == 0 && progress[2][1] == 0) || (progress[0][2] == 0 && progress[1][2] == 0 && progress[2][2] == 0)) {
@@ -187,7 +187,7 @@ function symbol(e) {
 
 var h2_tags = document.getElementsByTagName('h2')
 
-var new_game_btn = document.getElementById('new_game_btn')
+const new_game_btn = document.getElementById('new_game_btn')
 new_game_btn.addEventListener('click', function () {
     
 
@@ -220,13 +220,13 @@ new_game_btn.addEventListener('click', function () {
 
         i=0
         for(i; i<x_times; i++){
-            var x = document.getElementById('x')
+            const x = document.getElementById('x')
             x.remove();
         }
 
         i=0
         for(i; i<o_times; i++){
-            var o = document.getElementById('o')
+            const o = document.getElementById('o')
             o.remove();
         }
 
@@ -268,13 +268,13 @@ reset_btn.addEventListener('click', function () {
 
         i=0
         for(i; i<x_times; i++){
-            var x = document.getElementById('x')
+            const x = document.getElementById('x')
             x.remove();
         }
 
         i=0
         for(i; i<o_times; i++){
-            var o = document.getElementById('o')
+            const o = document.getElementById('o')
             o.remove();
         }
 
