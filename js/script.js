@@ -367,7 +367,7 @@ function myMove(e) {
 
     let aim
     if (e == 'strike_row1' || e == 'strike_row2' || e == 'strike_row3'){
-        aim = 160
+        aim = 150
     } else {
         aim = 220
     } 
