@@ -11,21 +11,25 @@ add_player_btn.addEventListener('click', add_player_name)
 var player1_score = 0
 var player2_score = 0
 
-var p1_name = 'Player 1'
-var p2_name = 'Player 2'
+var p1_name = ''
+var p2_name = ''
 
 function add_player_name() {
-    h4_tags[0].innerText = `${player1_name.value}`
-    h5_tags[0].innerText = player1_score
+    if(p1_name == '' && p2_name == '') {
+        if (player1_name.value != '' && player2_name.value != '') {
+            h4_tags[0].innerText = `${player1_name.value}`
+            h5_tags[0].innerText = player1_score
 
-    p1_name = player1_name.value
-    player1_name.value = ""
+            p1_name = player1_name.value
+            player1_name.value = ""
 
-    h4_tags[1].innerText = `${player2_name.value}`
-    h5_tags[1].innerText = player2_score
+            h4_tags[1].innerText = `${player2_name.value}`
+            h5_tags[1].innerText = player2_score
 
-    p2_name = player2_name.value
-    player2_name.value =""
+            p2_name = player2_name.value
+            player2_name.value =""
+        }
+    }
 }
 
 
@@ -77,102 +81,104 @@ var progress = [[-1, -1, -1],
                 [-1, -1, -1], 
                 [-1, -1, -1]]
 
-function symbol(e) {    
-    if (_continue == true) {
-        if (eval(`${e.target.id}`) == false) {
-            let symbol = document.createElement('id')
+function symbol(e) {   
+    if(p1_name != '' && p2_name != '') {
+        if (_continue == true) {
+            if (eval(`${e.target.id}`) == false) {
+                let symbol = document.createElement('id')
 
-            if (turn % 2 == 0) {
-                symbol.innerHTML = '<div id="x"></div>'
-                e.target.append(symbol)
+                if (turn % 2 == 0) {
+                    symbol.innerHTML = '<div id="x"></div>'
+                    e.target.append(symbol)
 
-                if (e.target.id == "row1_column1"){
-                    progress[0][0] = 0
-                } else if (e.target.id == 'row1_column2'){
-                    progress[0][1] = 0
-                } else if (e.target.id == 'row1_column3'){
-                    progress[0][2] = 0
-                } else if (e.target.id == 'row2_column1'){
-                    progress[1][0] = 0
-                } else if (e.target.id == 'row2_column2'){
-                    progress[1][1] = 0
-                } else if (e.target.id == 'row2_column3'){
-                    progress[1][2] = 0
-                } else if (e.target.id == 'row3_column1'){
-                    progress[2][0] = 0
-                } else if (e.target.id == 'row3_column2'){
-                    progress[2][1] = 0
-                } else if (e.target.id == 'row3_column3'){
-                    progress[2][2] = 0
+                    if (e.target.id == "row1_column1"){
+                        progress[0][0] = 0
+                    } else if (e.target.id == 'row1_column2'){
+                        progress[0][1] = 0
+                    } else if (e.target.id == 'row1_column3'){
+                        progress[0][2] = 0
+                    } else if (e.target.id == 'row2_column1'){
+                        progress[1][0] = 0
+                    } else if (e.target.id == 'row2_column2'){
+                        progress[1][1] = 0
+                    } else if (e.target.id == 'row2_column3'){
+                        progress[1][2] = 0
+                    } else if (e.target.id == 'row3_column1'){
+                        progress[2][0] = 0
+                    } else if (e.target.id == 'row3_column2'){
+                        progress[2][1] = 0
+                    } else if (e.target.id == 'row3_column3'){
+                        progress[2][2] = 0
+                    }
+                } else {
+                    symbol.innerHTML = '<div id="o"></div>'
+                    e.target.append(symbol)
+
+                    if (e.target.id == 'row1_column1'){
+                        progress[0][0] = 1
+                    } else if (e.target.id == 'row1_column2'){
+                        progress[0][1] = 1
+                    } else if (e.target.id == 'row1_column3'){
+                        progress[0][2] = 1
+                    } else if (e.target.id == 'row2_column1'){
+                        progress[1][0] = 1
+                    } else if (e.target.id == 'row2_column2'){
+                        progress[1][1] = 1
+                    } else if (e.target.id == 'row2_column3'){
+                        progress[1][2] = 1
+                    } else if (e.target.id == 'row3_column1'){
+                        progress[2][0] = 1
+                    } else if (e.target.id == 'row3_column2'){
+                        progress[2][1] = 1
+                    } else if (e.target.id == 'row3_column3'){
+                        progress[2][2] = 1
+                    }
                 }
-            } else {
-                symbol.innerHTML = '<div id="o"></div>'
-                e.target.append(symbol)
 
-                if (e.target.id == 'row1_column1'){
-                    progress[0][0] = 1
-                } else if (e.target.id == 'row1_column2'){
-                    progress[0][1] = 1
-                } else if (e.target.id == 'row1_column3'){
-                    progress[0][2] = 1
-                } else if (e.target.id == 'row2_column1'){
-                    progress[1][0] = 1
-                } else if (e.target.id == 'row2_column2'){
-                    progress[1][1] = 1
-                } else if (e.target.id == 'row2_column3'){
-                    progress[1][2] = 1
-                } else if (e.target.id == 'row3_column1'){
-                    progress[2][0] = 1
-                } else if (e.target.id == 'row3_column2'){
-                    progress[2][1] = 1
-                } else if (e.target.id == 'row3_column3'){
-                    progress[2][2] = 1
-                }
-            }
+                turn++
 
-            turn++
+                var result = document.createElement('id')
+                var winner = document.getElementById('round_winner')
 
-            var result = document.createElement('id')
-            var winner = document.getElementById('round_winner')
+                if(turn > 4) {
+                    if ((progress[0][0] == 0 && progress[0][1] == 0 && progress[0][2] == 0) || (progress[1][0] == 0 && progress[1][1] == 0 && progress[1][2] == 0) || (progress[2][0] == 0 && progress[2][1] == 0 && progress[2][2] == 0) || (progress[0][0] == 0 && progress[1][1] == 0 && progress[2][2] == 0) || (progress[0][2] == 0 && progress[1][1] == 0 && progress[2][0] == 0) || (progress[0][0] == 0 && progress[1][0] == 0 && progress[2][0] == 0) || (progress[0][1] == 0 && progress[1][1] == 0 && progress[2][1] == 0) || (progress[0][2] == 0 && progress[1][2] == 0 && progress[2][2] == 0)) {
+                        player1_score+=1
 
-            if(turn > 4) {
-                if ((progress[0][0] == 0 && progress[0][1] == 0 && progress[0][2] == 0) || (progress[1][0] == 0 && progress[1][1] == 0 && progress[1][2] == 0) || (progress[2][0] == 0 && progress[2][1] == 0 && progress[2][2] == 0) || (progress[0][0] == 0 && progress[1][1] == 0 && progress[2][2] == 0) || (progress[0][2] == 0 && progress[1][1] == 0 && progress[2][0] == 0) || (progress[0][0] == 0 && progress[1][0] == 0 && progress[2][0] == 0) || (progress[0][1] == 0 && progress[1][1] == 0 && progress[2][1] == 0) || (progress[0][2] == 0 && progress[1][2] == 0 && progress[2][2] == 0)) {
-                    player1_score+=1
+                        h5_tags[0].innerText = player1_score
 
-                    h5_tags[0].innerText = player1_score
+                    /* console.log(progress[0][0])
+                        console.log(progress[0][1])
+                        console.log(progress[0][2])
+                        console.log(progress[1][0])
+                        console.log(progress[1][1])
+                        console.log(progress[1][2])
+                        console.log(progress[2][0])
+                        console.log(progress[2][1])
+                        console.log(progress[2][2])*/
 
-                   /* console.log(progress[0][0])
-                    console.log(progress[0][1])
-                    console.log(progress[0][2])
-                    console.log(progress[1][0])
-                    console.log(progress[1][1])
-                    console.log(progress[1][2])
-                    console.log(progress[2][0])
-                    console.log(progress[2][1])
-                    console.log(progress[2][2])*/
+                        result.innerHTML = `<div id="winner">${p1_name} Won This Round!</div>`
+                        winner.append(result)
+                        
+                        _continue = false
+                        tie = false
+                    } else if ((progress[0][0] == 1 && progress[0][1] == 1 && progress[0][2] == 1) || (progress[1][0] == 1 && progress[1][1] == 1 && progress[1][2] == 1) || (progress[2][0] == 1 && progress[2][1] == 1 && progress[2][2] == 1) || (progress[0][0] == 1 && progress[1][1] == 1 && progress[2][2] == 1) || (progress[0][2] == 1 && progress[1][1] == 1 && progress[2][0] == 1) || (progress[0][0] == 1 && progress[1][0] == 1 && progress[2][0] == 1) || (progress[0][1] == 1 && progress[1][1] == 1 && progress[2][1] == 1) || (progress[0][2] == 1 && progress[1][2] == 1 && progress[2][2] == 1)) {
+                        player2_score+=1
 
-                    result.innerHTML = `<div id="winner">${p1_name} Won This Round!</div>`
-                    winner.append(result)
+                        h5_tags[1].innerText = player2_score
+
+                        result.innerHTML = `<div id="winner">${p2_name} Won This Round!</div>`
+                        round_winner.append(result)
+
+                        _continue = false
+                        tie = false
+                    }   
                     
-                    _continue = false
-                    tie = false
-                } else if ((progress[0][0] == 1 && progress[0][1] == 1 && progress[0][2] == 1) || (progress[1][0] == 1 && progress[1][1] == 1 && progress[1][2] == 1) || (progress[2][0] == 1 && progress[2][1] == 1 && progress[2][2] == 1) || (progress[0][0] == 1 && progress[1][1] == 1 && progress[2][2] == 1) || (progress[0][2] == 1 && progress[1][1] == 1 && progress[2][0] == 1) || (progress[0][0] == 1 && progress[1][0] == 1 && progress[2][0] == 1) || (progress[0][1] == 1 && progress[1][1] == 1 && progress[2][1] == 1) || (progress[0][2] == 1 && progress[1][2] == 1 && progress[2][2] == 1)) {
-                    player2_score+=1
+                    if (turn == 9 && tie) {
+                        result.innerHTML = `<div id="winner">It\'s a TIE!!</div>`
+                        round_winner.append(result)
 
-                    h5_tags[1].innerText = player2_score
-
-                    result.innerHTML = `<div id="winner">${p2_name} Won This Round!</div>`
-                    round_winner.append(result)
-
-                    _continue = false
-                    tie = false
-                }   
-                
-                if (turn == 9 && tie) {
-                    result.innerHTML = `<div id="winner">It\'s a TIE!!</div>`
-                    round_winner.append(result)
-
-                    _continue = false
+                        _continue = false
+                    }
                 }
             }
         }
@@ -283,4 +289,9 @@ reset_btn.addEventListener('click', function () {
 
     player1_score = 0
     player2_score = 0
+
+    p1_name = ''
+    p2_name = ''
+    player1_name.value = ''
+    player2_name.value = ''
 })
