@@ -83,7 +83,7 @@ body {
 }
 
 #row1_column1, #row1_column11, #row1_column2, #row1_column3, #row2_column1, #row2_column2, #row2_column3, #row3_column1, #row3_column2, #row3_column3 {
-    border: 2px solid black;
+    border: 1px solid black;
     width: 55px;
     height: 55px;
     cursor: pointer;

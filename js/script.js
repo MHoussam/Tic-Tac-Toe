@@ -280,4 +280,7 @@ reset_btn.addEventListener('click', function () {
     h4_tags[1].innerText = ''
     h5_tags[0].innerText = ''
     h5_tags[1].innerText = ''
+
+    player1_score = 0
+    player2_score = 0
 })
