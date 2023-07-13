@@ -172,7 +172,6 @@ function symbol(e) {
                             myMove('strike_column3');
                         }
 
-
                         result.innerHTML = `<div id="winner">${p1_name} Won This Round!</div>`
                         winner.append(result)
                         
@@ -182,6 +181,24 @@ function symbol(e) {
                         player2_score+=1
 
                         h5_tags[1].innerText = player2_score
+
+                        if (progress[0][2] == 1 && progress[1][1] == 1 && progress[2][0] == 1){
+                            myMove('strike_diagonal1');
+                        } else if (progress[0][0] == 1 && progress[1][1] == 1 && progress[2][2] == 1) {
+                            myMove('strike_diagonal2');
+                        } else if (progress[0][0] == 1 && progress[0][1] == 1 && progress[0][2] == 1) {
+                            myMove('strike_row1');
+                        } else if (progress[1][0] == 1 && progress[1][1] == 1 && progress[1][2] == 1) {
+                            myMove('strike_row2');
+                        } else if (progress[2][0] == 1 && progress[2][1] == 1 && progress[2][2] == 1) {
+                            myMove('strike_row3');
+                        } else if (progress[0][0] == 1 && progress[1][0] == 1 && progress[2][0] == 1) {
+                            myMove('strike_column1');
+                        } else if (progress[0][1] == 1 && progress[1][1] == 1 && progress[2][1] == 1) {
+                            myMove('strike_column2');
+                        } else if (progress[0][2] == 1 && progress[1][2] == 1 && progress[2][2] == 1) {
+                            myMove('strike_column3');
+                        }
 
                         result.innerHTML = `<div id="winner">${p2_name} Won This Round!</div>`
                         round_winner.append(result)
@@ -366,10 +383,14 @@ function myMove(e) {
     strike.style.zIndex = '1';
 
     let aim
-    if (e == 'strike_row1' || e == 'strike_row2' || e == 'strike_row3'){
+    if (e == 'strike_row1' || e == 'strike_row2' || e == 'strike_row3') {
         aim = 150
-    } else {
+    } else if (e == 'strike_diagonal1') {
+        aim = 210
+    } else if (e == 'strike_diagonal2') {
         aim = 220
+    } else if (e == 'strike_column1' || e == 'strike_column2' || e == 'strike_column3') {
+        aim = 210
     } 
 
     let pos = 0;
@@ -380,6 +401,7 @@ function myMove(e) {
             clearInterval(id);
         } else {
             pos+=2;
+            console.log(id)
             line.style.visibility = 'visible';
             line.style.width = pos + 'px';
         }
