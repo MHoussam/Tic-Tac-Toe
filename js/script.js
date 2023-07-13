@@ -210,29 +210,34 @@ new_game_btn.addEventListener('click', function () {
                 [-1, -1, -1], 
                 [-1, -1, -1]]
 
-        if (turn % 2 == 0) {
-            var x_times = parseInt(turn / 2)
-        } else {
-            var x_times = parseInt(turn / 2) + 1
-        }
+    if (turn % 2 == 0) {
+        var x_times = parseInt(turn / 2)
+    } else {
+        var x_times = parseInt(turn / 2) + 1
+    }
 
-        var o_times = parseInt(turn / 2)
+    var o_times = parseInt(turn / 2)
 
-        i=0
-        for(i; i<x_times; i++){
-            const x = document.getElementById('x')
-            x.remove();
-        }
+    i=0
+    for(i; i<x_times; i++){
+        const x = document.getElementById('x')
+        x.remove();
+    }
 
-        i=0
-        for(i; i<o_times; i++){
-            const o = document.getElementById('o')
-            o.remove();
-        }
+    i=0
+    for(i; i<o_times; i++){
+        const o = document.getElementById('o')
+        o.remove();
+    }
 
-        h2_tags[4].innerText = ''
+    h2_tags[4].innerText = ''
 
-        turn = 0
+    turn = 0
+
+    const elem = document.getElementById("strike_longer");
+    const el = document.getElementById("strike");
+    el.style.zIndex = '-1';
+    elem.style.visibility = 'hidden';
 })
 
 var reset_btn = document.getElementById('reset_btn')
@@ -258,29 +263,29 @@ reset_btn.addEventListener('click', function () {
                 [-1, -1, -1], 
                 [-1, -1, -1]]     
 
-        if (turn % 2 == 0) {
-            var x_times = parseInt(turn / 2)
-        } else {
-            var x_times = parseInt(turn / 2) + 1
-        }
+    if (turn % 2 == 0) {
+        var x_times = parseInt(turn / 2)
+    } else {
+        var x_times = parseInt(turn / 2) + 1
+    }
 
-        var o_times = parseInt(turn / 2)
+    var o_times = parseInt(turn / 2)
 
-        i=0
-        for(i; i<x_times; i++){
-            const x = document.getElementById('x')
-            x.remove();
-        }
+    i=0
+    for(i; i<x_times; i++){
+        x = document.getElementById('x')
+        x.remove();
+    }
 
-        i=0
-        for(i; i<o_times; i++){
-            const o = document.getElementById('o')
-            o.remove();
-        }
+    i=0
+    for(i; i<o_times; i++){
+        o = document.getElementById('o')
+        o.remove();
+    }
 
-        h2_tags[4].innerText = ''
+    h2_tags[4].innerText = ''
 
-        turn = 0
+    turn = 0
 
     h4_tags[0].innerText = ''
     h4_tags[1].innerText = ''
@@ -294,4 +299,29 @@ reset_btn.addEventListener('click', function () {
     p2_name = ''
     player1_name.value = ''
     player2_name.value = ''
+
+    const elem = document.getElementById("strike_longer");
+    const el = document.getElementById("strike");
+    el.style.zIndex = '-1';
+    elem.style.visibility = 'hidden';
 })
+
+function myMove() {
+    let id = null;
+    const elem = document.getElementById("strike_longer");
+    const el = document.getElementById("strike");
+    el.style.zIndex = '1';
+
+    let pos = 0;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+        if (pos == 215) {
+            clearInterval(id);
+          } else {
+            pos++;
+            elem.style.visibility = 'visible';
+            elem.style.width = pos + 'px';
+          }
+    }
+  }

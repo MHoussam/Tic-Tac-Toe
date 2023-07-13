@@ -131,14 +131,21 @@ body {
     background-image: url('../img/o.png');
 }
 
-.strike {
+#strike {
     width: 289.914px;
-    height: 0px;
-    transform: rotate(-1deg);
-    stroke-width: 10px;
-    stroke: #BB0202;
-    visibility: visible;
     position: absolute;
     margin-left: 5%;
     margin-top: .5%;
+    z-index:-1;
+}
+
+#strike_longer {
+    transform: rotate(-1deg);
+    stroke-width: 10px;
+    stroke: #BB0202;
+    visibility: hidden;
+    width: 215px; 
+    height: 160px;
+    fill: none;
+    stroke-linecap: round;
 }
