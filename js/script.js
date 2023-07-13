@@ -340,17 +340,17 @@ reset_btn.addEventListener('click', function () {
     } else if (strike_diagonal2.style.visibility == 'visible') {
         strike_diagonal2.style.visibility = 'hidden'
     } else if (strike_row1.style.visibility == 'visible') {
-        'strike_row1'.style.visibility = 'hidden';
+        strike_row1.style.visibility = 'hidden';
     } else if (strike_row2.style.visibility == 'visible') {
-        'strike_row2'.style.visibility = 'hidden';
-    } else if (strike_column1.style.visibility == 'visible') {
-        'strike_row3'.style.visibility = 'hidden';
+        strike_row2.style.visibility = 'hidden';
+    } else if (strike_row3.style.visibility == 'visible') {
+        strike_row3.style.visibility = 'hidden';
     }  else if (strike_column1.style.visibility == 'visible') {
-        'strike_column1'.style.visibility = 'hidden';
+        strike_column1.style.visibility = 'hidden';
     } else if (strike_column2.style.visibility == 'visible') {
-        'strike_column2'.style.visibility = 'hidden';
+        strike_column2.style.visibility = 'hidden';
     } else if (strike_column3.style.visibility == 'visible') {
-        'strike_column3'.style.visibility = 'hidden';
+        strike_column3.style.visibility = 'hidden';
     }
 
     const line = document.getElementById("strike_diagonal1");
@@ -362,16 +362,21 @@ reset_btn.addEventListener('click', function () {
 function myMove(e) {
     let id = null;
     const line = document.getElementById(e);
-    console.log(e);
     const strike = document.getElementById("strike");
     strike.style.zIndex = '1';
+
+    let aim
+    if (e == 'strike_row1' || e == 'strike_row2' || e == 'strike_row3'){
+        aim = 160
+    } else {
+        aim = 220
+    } 
 
     let pos = 0;
     clearInterval(id);
     id = setInterval(frame, 1);
-    console.log(id)
     function frame() {
-        if (pos == 220) {
+        if (pos == aim) {
             clearInterval(id);
         } else {
             pos+=2;
